@@ -1,0 +1,175 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Data;
+
+namespace cal2
+{
+    /// <summary>
+    /// MainWindow.xaml 的交互逻辑
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            
+            InitializeComponent();
+            
+        }
+
+       
+         public String calr;
+
+         private void plusButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "+";
+             calResult.Content = calr;
+         }
+
+         private void subButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "-";
+             calResult.Content = calr;
+         }
+
+         private void multiButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "*";
+             calResult.Content = calr;
+
+         }
+
+         private void diviButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "/";
+             calResult.Content = calr;
+         }
+
+         private void leftButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "(";
+             calResult.Content = calr;
+         }
+
+         private void rightButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += ")";
+             calResult.Content = calr;
+         }
+
+         private void oneButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "1";
+             calResult.Content = calr;
+         }
+
+         private void twoButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "2";
+             calResult.Content = calr;
+         }
+
+         private void threeButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "3";
+             calResult.Content = calr;
+         }
+
+         private void fourButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "4";
+             calResult.Content = calr;
+         }
+
+         private void fiveButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "5";
+             calResult.Content = calr;
+         }
+
+         private void sixButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "6";
+             calResult.Content = calr;
+
+         }
+
+         private void sevenButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "7";
+             calResult.Content = calr;
+         }
+
+         private void eightButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "8";
+             calResult.Content = calr;
+         }
+
+         private void nineButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "9";
+             calResult.Content = calr;
+
+         }
+
+         private void zeroButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += "0";
+             calResult.Content = calr;
+         }
+
+         private void delButton_Click(object sender, RoutedEventArgs e)
+         {
+             if (calr.Length > 0)
+             {
+                 calr = calr.Substring(0, calr.Length - 1);
+                 calResult.Content = calr;
+             }
+             
+         }
+
+         private void clearButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr = "";
+             calResult.Content = calr;
+         }
+
+         private void equalButton_Click(object sender, RoutedEventArgs e)
+         {
+             try
+             {
+                 calr = new DataTable().Compute(calr, "").ToString();
+                 calResult.Content = calr;
+             }
+             catch (Exception ex)
+             {
+                 calr = "";
+                 MessageBox.Show("计算错误");
+                 calResult.Content = calr;
+             }
+
+         }
+
+         private void pointButton_Click(object sender, RoutedEventArgs e)
+         {
+             calr += ".";
+             calResult.Content = calr;
+         }
+        
+        
+
+        
+
+    }
+}
